@@ -11,10 +11,8 @@ public class ASLauncher {
 
     private LinearOpMode auto;
 
-    public DcMotorEx launcher;
-    
-    public Servo adjusterTop;
-    public Servo adjusterBottom;
+    public DcMotorEx launcherLeft;
+    public DcMotorEx launcherRight;
     
     // Servo light;
 
@@ -32,9 +30,8 @@ public class ASLauncher {
     public ASLauncher(LinearOpMode auto) {
         this.auto = auto;
 
-        this.launcher = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.LAUNCHER_NAME);
-        this.adjusterTop = auto.hardwareMap.get(Servo.class, ASBotConfig.ADJUSTER_TOP_NAME);
-        this.adjusterBottom = auto.hardwareMap.get(Servo.class, ASBotConfig.ADJUSTER_BOTTOM_NAME);
+        this.launcherLeft = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.LAUNCHER_LEFT_NAME);
+        this.launcherRight = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.LAUNCHER_RIGHT_NAME);
     
         this.launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         // this.light = auto.hardwareMap.get(Servo.class, ASBotConfig.LIGHT_NAME);
@@ -56,7 +53,7 @@ public class ASLauncher {
     public double process() {
         double deltaTime = deltaTimer.seconds();
 
-        double launcherVelocity = launcher.getVelocity();
+        double launcherVelocity = launcherRight.getVelocity();
 
         if (this.launcherTargetVelocity != 0) {
             double launcherPower = launcherPIDFController.PIDFControl(
@@ -64,8 +61,9 @@ public class ASLauncher {
                     launcherVelocity,
                     deltaTime
             );
-
-            launcher.setPower(launcherPower);
+            
+            launcherLeft.setPower(-launcherPower)
+            launcherRight.setPower(launcherPower);
         }
         else {
             launcher.setPower(0);

@@ -16,12 +16,13 @@ public class ASBotConfig {
   public static final String BACK_RIGHT_WHEEL_NAME = "back_right";
 
   public static final String INTAKE_NAME = "intake";
-  public static final String PUSHER_NAME = "pusher";
+  // public static final String PUSHER_NAME = "pusher";
   public static final String STOPPER_NAME = "stopper";
-  public static final String ADJUSTER_BOTTOM_NAME = "adjuster_bottom";
-  public static final String ADJUSTER_TOP_NAME = "adjuster_top";
+  // public static final String ADJUSTER_BOTTOM_NAME = "adjuster_bottom";
+  // public static final String ADJUSTER_TOP_NAME = "adjuster_top";
 
-  public static final String LAUNCHER_NAME = "flywheel";
+  public static final String LAUNCHER_LEFT_NAME = "flywheel_left";
+  public static final String LAUNCHER_RIGHT_NAME = "flywheel_right";
 
   // public static final String LIGHT_NAME = "light";
   // ---------------------------------------------------------------------------

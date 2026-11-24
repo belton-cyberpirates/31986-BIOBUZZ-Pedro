@@ -10,7 +10,7 @@ public class ASIntake {
     private LinearOpMode auto;
 
     public DcMotorEx intake;
-    public DcMotorEx pusher;
+    //public DcMotorEx pusher;
     public Servo stopper;
 
 
@@ -18,7 +18,7 @@ public class ASIntake {
         this.auto = auto;
         
         this.intake = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.INTAKE_NAME);
-        this.pusher = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.PUSHER_NAME);
+        //this.pusher = auto.hardwareMap.get(DcMotorEx.class, ASBotConfig.PUSHER_NAME);
         this.stopper = auto.hardwareMap.get(Servo.class, ASBotConfig.STOPPER_NAME);
         
         this.intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -31,10 +31,10 @@ public class ASIntake {
     }
 
 
-    public void SetPusherPower(double power) {
-        intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        pusher.setPower(power);
-    }
+    // public void SetPusherPower(double power) {
+    //     pusher.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    //     pusher.setPower(power);
+    // }
   
   
     public void SetIntakeVelocity(int velocity) {
@@ -53,20 +53,20 @@ public class ASIntake {
     }
   
   
-    public void SetPusherVelocity(int velocity) {
-        pusher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        pusher.setVelocity(velocity);
-    }
+    // public void SetPusherVelocity(int velocity) {
+    //     pusher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    //     pusher.setVelocity(velocity);
+    // }
 
 
-    public void SpinPusher() {
-        this.SetPusherVelocity(ASBotConfig.AUTO_PUSHER_VELOCITY);
-    }
+    // public void SpinPusher() {
+    //     this.SetPusherVelocity(ASBotConfig.AUTO_PUSHER_VELOCITY);
+    // }
 
 
-    public void SpinPusher(double mult) {
-        this.SetPusherVelocity((int)(ASBotConfig.AUTO_PUSHER_VELOCITY * mult));
-    }
+    // public void SpinPusher(double mult) {
+    //     this.SetPusherVelocity((int)(ASBotConfig.AUTO_PUSHER_VELOCITY * mult));
+    // }
 
 
     public void OpenStopper() {
